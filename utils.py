@@ -1,8 +1,12 @@
 import errno
 import logging
 import os
+import random
+import string
 import subprocess
 import sys
+from collections import OrderedDict
+
 
 def get_git_commit_hash(filename):
     """Gets the latest git commit hash for the given absolute file path.
@@ -58,4 +62,37 @@ def mkdir_p(dir_name):
             pass
         else:
             raise
+
+def genID(str_len):
+    """
+    Generate a random alphanumeric string of length `str_len`.
+    """
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(str_len))
+
+def dict_all_over(obj):
+    """
+    Specifically for output of `xmltodict` package's `parse` method.
+
+    Usage:
+    from xmltodict import parse
+    
+    xml = '<aldkj asld="asldk" alsdfj="100.2"></aldkj>'
+    xml = '<aldkj asld="asldk" alsdfj="100.2">laskdjf<alsdkfj>aaldkj</alsdkfj><alsdkfj>aaldaldskfjkj</alsdkfj></aldkj>'
+    xml = '<asfd><alsdkfj>aaldkj</alsdkfj><alsdkfj>aaldaldskfjkj</alsdkfj></asfd>'
+
+    dict_all_over(parse(xml))
+    """
+    if type(obj) == OrderedDict:
+        for key, value in obj.iteritems():
+            if key[0] != '@' and key != '#text':
+                obj[key] = dict_all_over(value)
+        return obj
+    elif type(obj) == list:
+        for i in xrange(len(obj)):
+            obj[i] = dict_all_over(obj[i])
+        return obj
+    else:
+        a = OrderedDict()
+        a["#text"] = obj
+        return a
 
