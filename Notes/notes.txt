@@ -1,0 +1,180 @@
+# sudo apt-get update
+# sudo apt-get upgrade
+# sudo apt-get install vim-gnome exuberant-ctags build-essential python-dev python3-dev
+# sudo apt-get install git mysql-server libmysqlclient-dev tree
+
+## 170111 17:38:09 [Warning] Using unique option prefix key_buffer instead of key_buffer_size is deprecated and will be removed in a future release. Please use the full name instead.
+## 170111 17:38:09 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
+### Checking installation
+### sudo service mysql status
+# mysql version 5.5.53
+# root password: nineleaps
+# Didn't run: `sudo mysql_secure_installation` and `sudo mysql_install_db` as suggested in: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04
+
+
+# git config --global user.name tackler
+# git config --global user.email abhilash@nineleaps.com
+
+# Download vim-basic.tar.gz_FILES.zip I sent to choppa
+# and vimrc I sent to halfbanana - contains the vimundo wala stuff
+# create .vimundo folder
+# In /etc/vim/vimrc file, uncomment 
+## if has("autocmd")
+##  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+## endif
+
+# wget https://bootstrap.pypa.io/get-pip.py
+# First installed pip using python get-pip.py
+# Then installed pip using python3 get-pip.py
+# pip version 9.0.1
+# Default pip is pip3
+
+# pip freeze > requirements_3.4.3.txt
+# pip2 freeze > requirements_2.7.6.txt
+# For this machine: I did this after installing virtualenv(wrapper)
+
+# pip install virtualenv
+# pip install virtualenvwrapper
+# pip2 install virtualenv
+# pip2 install virtualenvwrapper
+
+# Add `source /usr/local/bin/virtualenvwrapper.sh` to `~/.bashrc`
+# and execute `source ~/.bashrc`
+
+# virtualenv and mkvirtualenv commands
+# are by default creating virtual environments using python2
+# To use python3 do: mkvirtualenv -p /usr/bin/python3.4 <virtual env name>
+
+
+# Install Japanese keyboard - I installed the anthy version and not the google's moz one.
+# http://ubuntudigest.blogspot.in/2015/04/keyboard-input-for-japanese-hiragana.html
+# http://askubuntu.com/questions/772642/16-04-japanese-text-input-not-working
+# http://askubuntu.com/questions/789226/anthy-add-as-a-language-option-ubuntu-16-04
+## https://wiki.ubuntu.com/LanguageAndText#Affected_codebases
+## https://wiki.ubuntu.com/LanguageAndText
+# https://moritzmolch.com/1453
+## https://moritzmolch.com/2287
+## https://moritzmolch.com/349
+# http://www.localizingjapan.com/blog/2014/05/25/japanese-input-on-ubuntu-linux-14-04-lts-trusty-tahr/
+## http://www.localizingjapan.com/blog/2015/05/24/japanese-input-on-ubuntu-15-04-vivid-vervet/
+
+
+# Error! Your kernel headers for kernel 3.19.0-25-generic cannot be found.
+# Please install the linux-headers-3.19.0-25-generic package,
+# The link /vmlinuz.old is a damaged link
+# Removing symbolic link vmlinuz.old 
+#  you may need to re-run your boot loader[grub]
+# The link /initrd.img.old is a damaged link
+# Removing symbolic link initrd.img.old 
+#  you may need to re-run your boot loader[grub]
+
+# CORS Django: https://github.com/ottoyiu/django-cors-headers
+# https://github.com/zestedesavoir/django-cors-middleware
+
+# lxml
+# sudo apt-get install libxml2-dev libxslt1-dev
+# pynotify2
+# sudo apt-get install libdbus-1-dev libdbus-glib-1-dev
+# pip install dbus-python==1.2.4
+
+# sudo apt-get install libfontconfig1 (Install when phantomjs exits with code 127)
+
+# http://web.archive.org/web/20101124213553/http://abe.nwr.jp/w3m/w3m-js-en.html
+## http://askubuntu.com/questions/34687/is-there-a-text-mode-browser-which-supports-javascript/543209#543209
+## http://www.cnx-software.com/2014/02/09/building-elinks-text-based-web-browser-with-some-sort-of-javascript-support/
+## http://www.2daygeek.com/best-text-based-command-line-web-browser-for-linux/#
+
+# When in environment pip says it can't find pip.
+# do `easy_install pip`
+
+# If we "allow" an application in Google, it will create a .json file in `$HOME/.credentials` folder.
+
+# In sudo apt-get install, we can type 'y' too. No need for 'Y'.
+
+# Installing Apache, php
+# https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04
+# sudo apt-get install apache2
+# sudo apt-get install php5-mysql
+# sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-curl
+
+# https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/
+# Arc lint gives a command called `arc` but `arc` is in Ubuntu by default an archive utility.
+# git clone https://github.com/phacility/libphutil.git
+# git clone https://github.com/phacility/arcanist.git
+# Set path: PATH=$LOCALLIB/arcanist/bin:$PATH
+# So, put the arclint directory before $PATH in PATH.
+
+# You won't be able to connect to ec2's mysql because it will only allow localhost
+# So, in 'my.cnf' (/etc/mysql/my.cnf), comment `bind-address` line
+# and then create a new user with root privileges:
+# http://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server#answer-18821224
+
+# mysql - utf8
+# https://docs.moodle.org/23/en/Converting_your_MySQL_database_to_UTF8
+# http://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is
+
+# To group by and aggregate - normal python
+# http://stackoverflow.com/questions/21674331/group-by-multiple-keys-and-summarize-average-values-of-a-list-of-dictionaries#answer-21674471
+# To cast string to type without using eval
+# http://stackoverflow.com/questions/11775460/lexical-cast-from-string-to-type
+
+# Http codes
+# https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+
+# Django
+# http://stackoverflow.com/questions/11743207/django-model-case-insensitive-query-filtering
+# select-related
+# defer, only
+# in values, values_list we can give "role__name"
+# http://stackoverflow.com/questions/8047204/django-script-to-access-model-objects-without-using-manage-py-shell?noredirect=1&lq=1
+
+# Django ORM - SQL Alchemy
+# http://stackoverflow.com/questions/18199053/example-of-what-sqlalchemy-can-do-and-django-orm-cannot?rq=1
+# http://stackoverflow.com/questions/18465197/how-do-i-start-with-django-orm-to-easily-switch-to-sqlalchemy?rq=1
+# http://nathansnoggin.blogspot.in/2013/11/integrating-sqlalchemy-into-django.html
+# http://stackoverflow.com/questions/6606725/best-way-to-integrate-sqlalchemy-into-a-django-project
+# https://www.fullstackpython.com/sqlalchemy.html
+
+# https://rodic.fr/blog/sqlalchemy-django/
+# https://github.com/Deepwalker/aldjemy
+
+# https://engineering.betterworks.com/2015/09/03/sqlalchemy-and-django/
+# http://django-sabridge.readthedocs.io/en/latest/index.html
+# https://github.com/johnpaulett/django-sabridge
+# http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Table
+
+# TimeField Django SQLA Mysql
+# https://sourceforge.net/p/mysql-python/mysqldb-2/ci/7773efbe9b3012da2827b0284c43267cc9a4ecbd/tree/MySQLdb/converters.py#l139
+# https://github.com/django/django/blob/2d96c027f5eb32c2c09bd57df2240ae1d343b98e/django/db/backends/mysql/base.py#L44
+# .virtualenvs/<virtual env name>/local/lib/python2.7/site-packages/sqlalchemy/dialects/mysql/types.py
+# Replace
+if value is not None:
+    microseconds = value.microseconds
+    seconds = value.seconds
+    minutes = seconds // 60
+    return time(minutes // 60,
+                minutes % 60,
+                seconds - minutes * 60,
+                microsecond=microseconds)
+# with
+if value is not None:
+    if isinstance(value, time):
+        return value
+    else:
+        microseconds = value.microseconds
+        seconds = value.seconds
+        minutes = seconds // 60
+        return time(minutes // 60,
+                    minutes % 60,
+                    seconds - minutes * 60,
+                    microsecond=microseconds)
+
+# http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
+# http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
+
+# SQL Alchemy - Alembic
+# http://alembic.zzzcomputing.com/en/latest/tutorial.html
+
+# Fabric
+# http://www.fabfile.org/
+# http://docs.fabfile.org/en/1.13/tutorial.html
