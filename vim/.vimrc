@@ -18,7 +18,7 @@ set showmode " Show mode - Insert, Visual, Normal
 set mousemodel=popup
 
 " Set line numbering
-set number
+" set number
 
 " Next a few indentation options"
 set autoindent
@@ -58,6 +58,9 @@ if has("folding")
 endif
 
 set matchpairs+=<:>
+
+set undofile
+set undodir=~/.vimundo/
 
 "============================================================================
 " Colorschemes
