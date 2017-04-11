@@ -1,7 +1,7 @@
 # sudo apt-get update
 # sudo apt-get upgrade
-# sudo apt-get install vim-gnome exuberant-ctags build-essential python-dev python3-dev
-# sudo apt-get install git mysql-server libmysqlclient-dev tree
+# sudo apt-get install vim-gnome emacs exuberant-ctags build-essential python-dev python3-dev
+# sudo apt-get install git mysql-server libmysqlclient-dev tree htop
 
 ## 170111 17:38:09 [Warning] Using unique option prefix key_buffer instead of key_buffer_size is deprecated and will be removed in a future release. Please use the full name instead.
 ## 170111 17:38:09 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
@@ -45,6 +45,8 @@
 # are by default creating virtual environments using python2
 # To use python3 do: mkvirtualenv -p /usr/bin/python3.4 <virtual env name>
 
+# http://mrcoles.com/tips-using-pip-virtualenv-virtualenvwrapper/
+# http://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html#add2virtualenv
 
 # Install Japanese keyboard - I installed the anthy version and not the google's moz one.
 # http://ubuntudigest.blogspot.in/2015/04/keyboard-input-for-japanese-hiragana.html
@@ -109,14 +111,112 @@
 # and then create a new user with root privileges:
 # http://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server#answer-18821224
 
+# Mysql
+# Plus, you won't be able to do mysqldump on root created databases, because root@% user is not created.
+# http://stackoverflow.com/questions/1135245/how-to-get-a-list-of-mysql-user-accounts
+# http://stackoverflow.com/questions/10169960/mysql-error-1449-the-user-specified-as-a-definer-does-not-exist
+# http://stackoverflow.com/questions/1602904/how-do-you-run-a-single-query-through-mysql-from-the-command-line
+# http://stackoverflow.com/questions/7875400/how-to-split-the-datetime-column-into-date-and-time-and-compare-individually
+# http://stackoverflow.com/questions/11094466/generate-serial-number-in-mysql-query
+# http://stackoverflow.com/questions/356578/how-to-output-mysql-query-results-in-csv-format/35123787#35123787
+# http://stackoverflow.com/questions/32737478/how-should-i-tackle-secure-file-priv-in-mysql
+# http://stackoverflow.com/questions/3635166/how-to-import-csv-file-to-mysql-table
+# https://www.electrictoolbox.com/article/mysql/mysqlimport-errors/
+# http://stackoverflow.com/questions/3822648/how-do-i-query-between-two-dates-using-mysql
+# http://stackoverflow.com/questions/1997998/insert-data-into-tables-linked-by-foreign-key
+
+# mysqldump --skip-extended-insert --complete-insert -h 34.197.232.227 -u uber -p automated_ad_posting_test ad_data_master > old_adsfeb7_2_53pm.sql
+# Explanation: --skip-extended-insert: displays each row insert as separate statement
+#              --complete-insert: displays column names for insert
+#              the string after "-p " (-p<space>) is not password but "database name"
+#              the string after database name is table name we want to take dump of
+
 # mysql - utf8
 # https://docs.moodle.org/23/en/Converting_your_MySQL_database_to_UTF8
 # http://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is
+# http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
+# http://dba.stackexchange.com/questions/76788/create-a-database-with-charset-utf-8/76789
+# create database automated_ad_posting charset=utf8 collate=utf8_unicode_ci;
+# (or) create database automated_ad_posting charset=utf8mb4 collate=utf8mb4_unicode_ci;
 
+# mongo
+# For remote connection, /etc/mongod.conf has ip binded to localhost, comment it out
+# restart using "sudo service mongod restart"
+# http://stackoverflow.com/questions/14653938/remotely-connecting-to-mongodb-http-interface-on-ec2-server
+
+# Python
 # To group by and aggregate - normal python
 # http://stackoverflow.com/questions/21674331/group-by-multiple-keys-and-summarize-average-values-of-a-list-of-dictionaries#answer-21674471
 # To cast string to type without using eval
 # http://stackoverflow.com/questions/11775460/lexical-cast-from-string-to-type
+# http://stackoverflow.com/questions/2331592/datetime-datetime-utcnow-why-no-tzinfo
+# http://stackoverflow.com/questions/24856643/unexpected-results-converting-timezones-in-python
+# http://stackoverflow.com/questions/1143671/python-sorting-list-of-dictionaries-by-multiple-keys
+# http://stackoverflow.com/questions/9626535/get-domain-name-from-url
+# https://www.hugethoughts.com/blog/get-domain-name-url-string-python/
+# http://docs.python-requests.org/en/master/user/advanced/#body-content-workflow
+# http://stackoverflow.com/questions/35371043/use-python-requests-to-download-csv
+# https://docs.python.org/2/library/csv.html#examples
+#   > search unicode_csv_reader
+# http://stackoverflow.com/questions/147741/character-reading-from-file-in-python
+# http://stackoverflow.com/questions/3033952/python-thread-pool-similar-to-the-multiprocessing-pool
+# http://stackoverflow.com/questions/38987/how-to-merge-two-python-dictionaries-in-a-single-expression
+# http://stackoverflow.com/questions/11041405/why-dict-getkey-instead-of-dictkey?noredirect=1&lq=1
+# http://stackoverflow.com/questions/1508467/log-exception-with-traceback
+# http://stackoverflow.com/questions/34439/finding-what-methods-an-object-has
+# http://stackoverflow.com/questions/9856683/using-pythons-os-path-how-do-i-go-up-one-directory
+# http://stackoverflow.com/questions/68645/static-class-variables-in-python/#answer-69067
+# http://stackoverflow.com/questions/68645/static-class-variables-in-python/#answer-68672 <- Blair Conrad
+# http://stackoverflow.com/questions/6930144/underscore-vs-double-underscore-with-variables-and-methods
+# http://stackoverflow.com/questions/1301346/what-is-the-meaning-of-a-single-and-a-double-underscore-before-an-object-name
+# http://stackoverflow.com/questions/28657010/dangers-of-sys-setdefaultencodingutf-8
+    checkout the answer where they provide statistics
+# http://stackoverflow.com/questions/3828723/why-should-we-not-use-sys-setdefaultencodingutf-8-in-a-py-script
+# http://stackoverflow.com/questions/12282232/how-do-i-count-unique-values-inside-an-array-in-python
+# http://stackoverflow.com/questions/7247298/size-of-list-in-memory
+# http://stackoverflow.com/questions/311775/python-create-a-list-with-initial-capacity
+# http://stackoverflow.com/questions/1306631/python-add-list-to-set
+#   You can't add dict or list or set into a set because they are unhashable
+# http://stackoverflow.com/questions/1151658/python-hashable-dicts
+# http://www.grantjenks.com/docs/diskcache/tutorial.html
+# http://stackoverflow.com/questions/11092511/python-list-of-unique-dictionaries
+# http://stackoverflow.com/questions/6280978/how-to-uniqify-a-list-of-dict-in-python
+# http://stackoverflow.com/questions/3183707/stripping-off-the-seconds-in-datetime-python
+# http://stackoverflow.com/questions/4664850/find-all-occurrences-of-a-substring-in-python
+# https://docs.python.org/3/library/itertools.html#recipes
+# http://stackoverflow.com/questions/35325042/python-logging-disable-logging-from-imported-modules
+# http://stackoverflow.com/questions/3086973/how-do-i-convert-this-list-of-dictionaries-to-a-csv-file-python
+# https://docs.python.org/2/library/logging.html#logging.Logger.debug
+    exc_info
+# http://stackoverflow.com/questions/13521125/python-replacing-item-in-list
+# http://stackoverflow.com/questions/8384737/extract-file-name-from-path-no-matter-what-the-os-path-format
+# http://stackoverflow.com/questions/6996603/delete-a-file-or-folder-in-python
+# https://docs.python.org/2/library/os.html#os.system
+#   read subprocess
+# http://stackoverflow.com/questions/19603120/python-avoiding-zip-truncation-of-list
+
+# Pandas
+# http://stackoverflow.com/questions/32751229/pandas-sum-by-groupby-but-exclude-certain-columns
+# http://stackoverflow.com/questions/14745022/pandas-dataframe-how-do-i-split-a-column-into-two
+# http://stackoverflow.com/questions/12555323/adding-new-column-to-existing-dataframe-in-python-pandas
+# http://stackoverflow.com/questions/13411544/delete-column-from-pandas-dataframe
+# http://stackoverflow.com/questions/11346283/renaming-columns-in-pandas
+
+# Phantomjs
+# http://phantomjs.org/download.html
+# Geckodriver
+# https://github.com/mozilla/geckodriver/releases
+# Selenium
+# http://stackoverflow.com/questions/41721734/taking-screenshot-of-full-page-with-selenium-python-chromedriver
+# http://stackoverflow.com/questions/37906704/taking-a-whole-page-screenshot-with-selenium-marionette-in-python/42531572
+# http://stackoverflow.com/questions/26211056/python-selenium-screen-capture-not-getting-whole-page
+# http://stackoverflow.com/questions/21899953/how-to-set-window-size-using-phantomjs-and-selenium-webdriver-in-python
+# http://www.alittlemadness.com/2008/03/05/running-selenium-headless/
+#   http://stackoverflow.com/questions/39547598/selenium-common-exceptions-webdriverexception-message-connection-refused
+#   http://stackoverflow.com/questions/41355909/selenium-error-when-using-crontab-reboot-for-python-script
+#   sudo apt-get install xvfb
+#   selenium firefox connection refused
+#   export DISPLAY=:0 before running your code
 
 # Http codes
 # https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
@@ -127,6 +227,42 @@
 # defer, only
 # in values, values_list we can give "role__name"
 # http://stackoverflow.com/questions/8047204/django-script-to-access-model-objects-without-using-manage-py-shell?noredirect=1&lq=1
+# http://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering
+# http://stackoverflow.com/questions/2345708/how-can-i-get-the-full-absolute-url-with-domain-in-django
+
+# To use django in standalone scripts: (1.10)
+# First have the folder that contains `manage.py` in your pythonpath
+# Then do 
+# import os
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "automated_adposter_site.settings")
+# The above "automated_adposter_site" is the folder which contains "settings.py"
+# Then do
+# import django
+# django.setup()
+# Then do whatever you want.
+
+# pytz
+# Correct way to convert time to other timezones
+# est = pytz.timezone("US/Eastern")
+# now = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
+# est_now = now.astimezone(est)
+#
+# localize just creates a timzone info having datetime object
+# from a naive datetime object, similar to replace above.
+# Use the replace, only for utc times and localize for other timezones
+# est.localize(datetime.datetime())
+#
+# pytz.all_timezones  # gives list of all available timezones in pytz module.
+
+# https://docs.djangoproject.com/en/1.10/topics/logging/
+# https://docs.djangoproject.com/en/1.10/releases/1.9/#default-logging-changes-19
+
+# http://www.django-rest-framework.org/topics/documenting-your-api/
+
+# https://djangogirls.org/
+# https://trello.com/b/q7p6jcfg/django-girls
+# https://github.com/djangogirls
+# https://www.gitbook.com/book/djangogirls/djangogirls-tutorial/details
 
 # Django ORM - SQL Alchemy
 # http://stackoverflow.com/questions/18199053/example-of-what-sqlalchemy-can-do-and-django-orm-cannot?rq=1
@@ -175,6 +311,168 @@ if value is not None:
 # SQL Alchemy - Alembic
 # http://alembic.zzzcomputing.com/en/latest/tutorial.html
 
+# Pycharm follows reST docstring style. Also used by Sphinx
+# http://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format#answer-24385103
+# http://docutils.sourceforge.net/docs/user/rst/quickref.html
+# http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt
+# http://docutils.sourceforge.net/rst.html#id26
+# https://www.python.org/dev/peps/pep-0257/
+
+# https://www.jetbrains.com/pycharm/download/#section=linux
+# Go to File > Settings > Project: <your project name> > Project interpreter > From the dropdown list select your virtualenv or create one by click on gear icon
+# In Project Structure there, navigate > right click on a folder > Click on sources : to add them in python path for pycharm. NOTE: You are not adding it to virtualenv's python path. For django projects, add the directory which has your manage.py
+# In Settings > Editor > General > Appearance: Enable `Show whitespaces`. They appear as dots/periods.
+# In Settings > Editor > General > Code Folding: Enable `Documentation comments`.
+# In Settings > Editor > Code Style: Change Default Options > Right margin (columns): to 79 and enable "Wrap on typing"
+# In Settings > Editor > Code Style > Python > Wrapping and Braces
+#               Enable `Ensure right margin is not exceeded`
+#               Enable Force new line after colon > Single-clause statements
+# Look at Settings > Tools > Python Integrated Tools
+
 # Fabric
 # http://www.fabfile.org/
 # http://docs.fabfile.org/en/1.13/tutorial.html
+# http://www.fabfile.org/faq.html
+# for cryptography
+# sudo apt-get install libffi-dev libssl-dev
+# http://stackoverflow.com/questions/31508612/pip-install-unable-to-find-ffi-h-even-though-it-recognizes-libffi
+# http://askubuntu.com/questions/797351/fatal-error-openssl-opensslv-h-no-such-file-or-directory-compiling-mitmproxy
+
+# Bash
+# https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+# https://www.gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746
+# PS1="[\D{%Y-%m-%d %H:%M:%S %Z} \u@\H:\W] $ "
+# PS1="[\D{%Y-%m-%d} \u:\W] $ "
+# https://crontab.guru/every-1-hour
+# netstat - to see open ports
+# netstat -putan | grep LISTEN
+# https://www.howtogeek.com/50093/unzip-bunzip2-and-untar-those-tar-gz-or-tar-bz2-files-in-one-step/
+# cp --backup=existing --suffix=$(date +'%N') */*.py Desktop/temp/
+# There's a command called `basename`.
+
+# Android
+# http://askubuntu.com/questions/564910/kvm-is-not-installed-on-this-machine-dev-kvm-is-missing
+# http://askubuntu.com/questions/336795/ubuntu-fix-dependency-problems
+# http://stackoverflow.com/questions/36258908/cannot-launch-avd-in-emulator-output-sh-1-glxinfo
+# http://stackoverflow.com/questions/36554322/cannot-start-emulator-in-android-studio-2-0
+
+# Java and elastic search installation
+# sudo apt-get install openjdk-7-jdk openjdk-7-source
+# http://askubuntu.com/questions/56104/how-can-i-install-sun-oracles-proprietary-java-jdk-6-7-8-or-jre
+# JAVA_HOME = /usr/lib/jvm/jdk1.8.0_73
+# For elastic search 5.2.1, we have to install Java 1.8.0_73, in other words, jdk8u73
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
+# https://www.elastic.co/downloads
+# https://www.elastic.co/downloads/elasticsearch
+# https://www.elastic.co/downloads/kibana
+# https://www.elastic.co/downloads/logstash
+# https://www.elastic.co/guide/en/logstash/current/configuration.html
+# https://www.elastic.co/downloads/marvel
+#   Don't install it using above
+# https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html
+
+# Elastic search
+# password: changeme
+# curl -XGET -u elastic 'http://localhost:9200'
+# curl -XPUT -u elastic 'http://localhost:9200/click_analysis'
+# curl -XPUT -u elastic 'http://localhost:9200/click_analysis/_mapping/ad_perf' -d '{"dynamic_templates"}'
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html
+
+# Docker
+# https://docs.docker.com/engine/installation/linux/ubuntu/
+
+# Bash
+# http://stackoverflow.com/questions/1521462/looping-through-the-content-of-a-file-in-bash
+
+# Apache2
+# http://askubuntu.com/questions/446266/point-apache2-to-my-own-index-html-folder
+# look at /var/www/html/index.html too
+
+# Atom
+# https://atom.io/
+
+# Google spreadsheets
+# https://support.google.com/docs/answer/186103?co=GENIE.Platform%3DDesktop&hl=en
+# https://developers.google.com/sheets/api/limits
+# Google drive
+# https://developers.google.com/drive/v3/web/quickstart/python
+# https://developers.google.com/resources/api-libraries/documentation/drive/v3/python/latest/drive_v3.files.html
+# https://developers.google.com/drive/v3/reference/files/create
+
+# Javascript
+# https://github.com/flot/flot/blob/master/API.md
+# http://stackoverflow.com/questions/5765398/whats-the-best-way-to-convert-a-number-to-a-string-in-javascript
+# https://www.w3schools.com/bootstrap/bootstrap_pagination.asp
+# http://stackoverflow.com/questions/8069315/create-array-of-all-integers-between-two-numbers-inclusive-in-javascript-jquer
+# http://stackoverflow.com/questions/964119/how-to-get-the-class-of-the-clicked-element
+# https://api.jquery.com/addclass/
+# http://stackoverflow.com/questions/758688/sleep-in-javascript-delay-between-actions
+# http://stackoverflow.com/questions/3006644/how-can-i-view-array-structure-in-javascript-with-alert
+# http://stackoverflow.com/questions/1227212/how-to-disable-the-entire-dropdown-control-in-html
+# https://forum.jquery.com/topic/dropdown-values-disable-enable-jquery-with-values-already-selected
+# http://stackoverflow.com/questions/1643227/get-selected-text-from-a-drop-down-list-select-box-using-jquery?rq=1
+# https://momentjs.com/docs/
+# http://stackoverflow.com/questions/5101948/javascript-checking-for-null-vs-undefined-and-difference-between-and
+# http://stackoverflow.com/questions/111529/how-to-create-query-parameters-in-javascript#answer-111545
+# http://stackoverflow.com/questions/111529/how-to-create-query-parameters-in-javascript#answer-12040639
+# http://stackoverflow.com/questions/8902390/constructing-a-url-with-parameters-using-jquery
+
+# http://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
+
+# Nodejs
+# https://docs.npmjs.com/getting-started/installing-node
+# http://stackoverflow.com/questions/6880659/in-what-cases-will-http-referer-be-empty
+# http://stackoverflow.com/questions/5998694/how-to-create-an-https-server-in-node-js
+# http://stackoverflow.com/questions/2158283/will-a-302-redirect-maintain-the-referer-string/5441932#5441932
+# http://stackoverflow.com/questions/25250544/why-am-i-getting-error-trying-to-open-unclosed-connection
+# http://stackoverflow.com/questions/14940660/whats-mongoose-error-cast-to-objectid-failed-for-value-xxx-at-path-id
+# http://stackoverflow.com/questions/6912584/how-to-get-get-query-string-variables-in-express-js-on-node-js
+# https://nodejs.org/api/url.html
+# http://stackoverflow.com/questions/14974864/combine-or-merge-json-on-node-js-without-jquery#answer-14974931
+# http://stackoverflow.com/questions/14974864/combine-or-merge-json-on-node-js-without-jquery#answer-22286375
+# http://stackoverflow.com/questions/14974864/combine-or-merge-json-on-node-js-without-jquery#answer-14976206
+# http://stackoverflow.com/questions/14974864/combine-or-merge-json-on-node-js-without-jquery#answer-37336592
+# http://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object#answer-208106
+# http://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object#answer-21735614
+# http://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object#answer-12469043
+# http://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object#answer-23848569
+# https://github.com/Unitech/pm2
+
+# Mongo
+# Don't install using ubuntu apt-get
+# It created a new user "mongodb" and a new user "mongodb"
+
+# Git
+# http://stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting
+
+# Nginx
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-load-balancing-with-ssl-termination
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
+# http://serverfault.com/questions/10854/nginx-https-serving-with-same-config-as-http#answer-398158
+# http://stackoverflow.com/questions/1706111/where-can-i-find-the-error-logs-of-nginx-using-fastcgi-and-django
+
+# Gunicorn
+# http://docs.gunicorn.org/en/stable/deploy.html#
+# http://docs.gunicorn.org/en/stable/install.html#ubuntu
+
+## Nineleaps
+# By Sijeesh
+# http://aross.io/play/hour-slider/
+# By lubaba
+# https://stackoverflow.com/insights/survey/2017/?utm_medium=email&utm_campaign=dev-survey-2017&utm_content=em-features&utm_source=so-owned
+# By Rahul
+# https://perplex.city/the-search-for-self-60e2149cffa3
+
+# Amazon aws ec2 s3
+# http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html
+
+# Code formatters
+# https://github.com/google/google-java-format
+# https://standardjs.com/
+#   Not an actual official java script standard
+# https://github.com/google/yapf/
+# http://rubocop.readthedocs.io/en/latest/
