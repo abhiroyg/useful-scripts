@@ -194,6 +194,14 @@
 # https://docs.python.org/2/library/os.html#os.system
 #   read subprocess
 # http://stackoverflow.com/questions/19603120/python-avoiding-zip-truncation-of-list
+# http://stackoverflow.com/questions/3586106/perform-commands-over-ssh-with-python
+# sudo apt-get install python-tk
+#   http://stackoverflow.com/questions/26702119/installing-tkinter-on-ubuntu-14-04
+# http://stackoverflow.com/questions/29649089/adding-timeout-in-subprocess-check-output
+# To install pycurl, we need this
+#   sudo apt-get install libcurl4-openssl-dev
+# http://stackoverflow.com/questions/141545/how-to-overload-init-method-based-on-argument-type
+# https://www.programiz.com/python-programming/operator-overloading
 
 # Pandas
 # http://stackoverflow.com/questions/32751229/pandas-sum-by-groupby-but-exclude-certain-columns
@@ -201,6 +209,13 @@
 # http://stackoverflow.com/questions/12555323/adding-new-column-to-existing-dataframe-in-python-pandas
 # http://stackoverflow.com/questions/13411544/delete-column-from-pandas-dataframe
 # http://stackoverflow.com/questions/11346283/renaming-columns-in-pandas
+# http://stackoverflow.com/questions/10373660/converting-a-pandas-groupby-object-to-dataframe
+# http://stackoverflow.com/questions/39794016/pandas-create-single-size-sum-columns-after-group-by-multiple-columns
+# http://pandas.pydata.org/pandas-docs/stable/merging.html
+# http://stackoverflow.com/questions/17134716/convert-dataframe-column-type-from-string-to-datetime
+# http://stackoverflow.com/questions/31181295/converting-a-pandas-date-to-week-number
+# http://stackoverflow.com/questions/17477979/dropping-infinite-values-from-dataframes-in-pandas
+# http://stackoverflow.com/questions/13295735/how-can-i-replace-all-the-nan-values-with-zeros-in-a-column-of-a-pandas-datafra
 
 # Phantomjs
 # http://phantomjs.org/download.html
@@ -216,7 +231,14 @@
 #   http://stackoverflow.com/questions/41355909/selenium-error-when-using-crontab-reboot-for-python-script
 #   sudo apt-get install xvfb
 #   selenium firefox connection refused
+#   Xvfb :0 -ac &
 #   export DISPLAY=:0 before running your code
+#   Make sure that the display port is same, so you can only run one instance at a time.
+#
+#   https://medium.com/@griggheo/running-selenium-webdriver-tests-using-firefox-headless-mode-on-ubuntu-d32500bb6af2
+#   http://elementalselenium.com/tips/38-headless
+#   http://stackoverflow.com/questions/2520704/find-a-free-x11-display-number
+#   http://stackoverflow.com/questions/12153552/how-high-do-x11-display-numbers-go
 
 # Http codes
 # https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
@@ -349,6 +371,13 @@ if value is not None:
 # https://www.howtogeek.com/50093/unzip-bunzip2-and-untar-those-tar-gz-or-tar-bz2-files-in-one-step/
 # cp --backup=existing --suffix=$(date +'%N') */*.py Desktop/temp/
 # There's a command called `basename`.
+# http://xmodulo.com/how-to-find-and-kill-zombie-processes.html
+#   http://stackoverflow.com/questions/16944886/how-to-kill-zombie-process
+# http://unix.stackexchange.com/questions/4681/how-do-you-sort-du-output-by-size
+#   du -h -d 2 | sort -h
+# http://www.tecmint.com/how-to-check-disk-space-in-linux/
+# http://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
+# https://www.howtogeek.com/howto/linux/keep-your-linux-ssh-session-from-disconnecting/
 
 # Android
 # http://askubuntu.com/questions/564910/kvm-is-not-installed-on-this-machine-dev-kvm-is-missing
@@ -462,10 +491,16 @@ if value is not None:
 ## Nineleaps
 # By Sijeesh
 # http://aross.io/play/hour-slider/
-# By lubaba
+# http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+# By Lubaba
 # https://stackoverflow.com/insights/survey/2017/?utm_medium=email&utm_campaign=dev-survey-2017&utm_content=em-features&utm_source=so-owned
 # By Rahul
 # https://perplex.city/the-search-for-self-60e2149cffa3
+# By Tharun
+# https://amueller.github.io/word_cloud/auto_examples/masked.html
+# By G Ravi Teja
+# https://blog.scottnonnenberg.com/better-git-configuration/
+#   https://gist.github.com/scottnonnenberg/fefa3f65fdb3715d25882f3023b31c29
 
 # Amazon aws ec2 s3
 # http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html
