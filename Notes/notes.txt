@@ -22,6 +22,7 @@
 ## if has("autocmd")
 ##  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ## endif
+# http://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 
 # wget https://bootstrap.pypa.io/get-pip.py
 # First installed pip using python get-pip.py
@@ -124,6 +125,8 @@
 # https://www.electrictoolbox.com/article/mysql/mysqlimport-errors/
 # http://stackoverflow.com/questions/3822648/how-do-i-query-between-two-dates-using-mysql
 # http://stackoverflow.com/questions/1997998/insert-data-into-tables-linked-by-foreign-key
+# http://stackoverflow.com/questions/4932503/how-to-kill-mysql-connections
+#   show processlist;
 
 # mysqldump --skip-extended-insert --complete-insert -h 34.197.232.227 -u uber -p automated_ad_posting_test ad_data_master > old_adsfeb7_2_53pm.sql
 # Explanation: --skip-extended-insert: displays each row insert as separate statement
@@ -143,6 +146,7 @@
 # For remote connection, /etc/mongod.conf has ip binded to localhost, comment it out
 # restart using "sudo service mongod restart"
 # http://stackoverflow.com/questions/14653938/remotely-connecting-to-mongodb-http-interface-on-ec2-server
+# mongostat
 
 # Python
 # To group by and aggregate - normal python
@@ -202,6 +206,30 @@
 #   sudo apt-get install libcurl4-openssl-dev
 # http://stackoverflow.com/questions/141545/how-to-overload-init-method-based-on-argument-type
 # https://www.programiz.com/python-programming/operator-overloading
+# http://stackoverflow.com/questions/15018372/how-to-take-partial-screenshot-with-selenium-webdriver-in-python
+#   http://stackoverflow.com/questions/10848900/how-to-take-partial-screenshot-frame-with-selenium-webdriver
+# http://stackoverflow.com/questions/15753390/python-mock-requests-and-the-response
+# http://stackoverflow.com/questions/10623727/python-spacing-and-aligning-strings
+# http://stackoverflow.com/questions/13805939/testing-equality-of-three-values
+# http://stackoverflow.com/questions/31099561/test-if-all-elements-of-a-python-list-are-false
+# Coverage
+#  https://coverage.readthedocs.io/en/latest/source.html#source
+#  https://coverage.readthedocs.io/en/latest/config.html#run
+#  https://pypi.python.org/pypi/pytest-cov
+#    even though build is failing, with pytest, use this package
+#    install both packages, then only it will work (told by someone)
+#  py.test --cov-config .coveragerc --cov-report term-missing --cov=.
+#  .coveragerc
+[run]
+omit = 
+    alembic/*
+    automated_adposter_site/*
+    entities/*
+    logs/*
+    reports/*
+    fabfile.py
+    slack_bot/*
+# http://stackoverflow.com/questions/5850268/how-to-test-or-mock-if-name-main-contents
 
 # Pandas
 # http://stackoverflow.com/questions/32751229/pandas-sum-by-groupby-but-exclude-certain-columns
@@ -251,6 +279,10 @@
 # http://stackoverflow.com/questions/8047204/django-script-to-access-model-objects-without-using-manage-py-shell?noredirect=1&lq=1
 # http://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering
 # http://stackoverflow.com/questions/2345708/how-can-i-get-the-full-absolute-url-with-domain-in-django
+# http://www.django-rest-framework.org/api-guide/requests/#query_params
+# http://stackoverflow.com/questions/4668619/django-database-query-how-to-filter-objects-by-date-range
+# Ad.objects.filter(posted_time__gte=datetime(2017, 4, 22, 0, 0, 0), posted_time__lte=datetime(2017, 4, 22, 23, 59, 59)).count()
+# Ad.objects.filter(posted_time__gte=datetime.strptime("{} 00:00:00".format(date), "%Y-%m-%d %H:%M:%S"), posted_time__lte=datetime.strptime("{} 23:59:59".format(date), "%Y-%m-%d %H:%M:%S")).count()
 
 # To use django in standalone scripts: (1.10)
 # First have the folder that contains `manage.py` in your pythonpath
@@ -339,6 +371,9 @@ if value is not None:
 # http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt
 # http://docutils.sourceforge.net/rst.html#id26
 # https://www.python.org/dev/peps/pep-0257/
+# http://stackoverflow.com/questions/33651898/resolving-ibus-issue-ibus-prior-to-1-5-11-may-cause-input-problems
+#   #answer-36158784 wrote the solution, accepted answer is a workaround
+#   http://www.linuxfromscratch.org/blfs/view/systemd/general/ibus.html
 
 # https://www.jetbrains.com/pycharm/download/#section=linux
 # Go to File > Settings > Project: <your project name> > Project interpreter > From the dropdown list select your virtualenv or create one by click on gear icon
@@ -376,8 +411,11 @@ if value is not None:
 # http://unix.stackexchange.com/questions/4681/how-do-you-sort-du-output-by-size
 #   du -h -d 2 | sort -h
 # http://www.tecmint.com/how-to-check-disk-space-in-linux/
+#   df -h
 # http://unix.stackexchange.com/questions/73498/how-to-cycle-through-reverse-i-search-in-bash
 # https://www.howtogeek.com/howto/linux/keep-your-linux-ssh-session-from-disconnecting/
+# http://stackoverflow.com/questions/16956810/how-to-find-all-files-containing-specific-text-on-linux
+#   grep -rnw . -e "ERROR"
 
 # Android
 # http://askubuntu.com/questions/564910/kvm-is-not-installed-on-this-machine-dev-kvm-is-missing
@@ -501,9 +539,26 @@ if value is not None:
 # By G Ravi Teja
 # https://blog.scottnonnenberg.com/better-git-configuration/
 #   https://gist.github.com/scottnonnenberg/fefa3f65fdb3715d25882f3023b31c29
+# By Neville Kumar
+# https://medium.freecodecamp.com/this-picture-will-change-the-way-you-learn-to-code-557ac1e109bd
+#   https://martinfowler.com/bliki/MicroservicePrerequisites.html
+# By Divy
+# https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22
+#   http://www.commitstrip.com/en/2014/06/03/the-problem-is-not-the-tool-itself/
+
 
 # Amazon aws ec2 s3
 # http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html
+# Cloudwatch
+# http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html
+# http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-monitor-view-status.html
+# https://aws.amazon.com/route53/pricing/#Health_Checks
+# http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html
+# http://stackoverflow.com/questions/9336294/how-do-i-set-up-cloudwatch-to-detect-when-an-ec2-instance-goes-down
+# https://serverfault.com/questions/341438/setting-up-amazon-cloudwatch-to-get-an-alert-when-you-server-is-down
+#   pingdom
+# https://aws.amazon.com/cloudwatch/faqs/
+# https://aws.amazon.com/cloudwatch/pricing/
 
 # Code formatters
 # https://github.com/google/google-java-format
@@ -511,3 +566,11 @@ if value is not None:
 #   Not an actual official java script standard
 # https://github.com/google/yapf/
 # http://rubocop.readthedocs.io/en/latest/
+
+# VLC
+# vlcsub
+# sudo apt-get install vlc vlc-plugin-*
+# http://ubuntuhandbook.org/index.php/2015/02/upgrade-vlc-2-2-0-stable-ubuntu-14-04/
+# https://github.com/exebetche/vlsub
+#   not for vlc 2.1
+#   but ubuntu provides vlc-plugin-vlsub package

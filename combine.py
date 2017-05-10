@@ -46,10 +46,13 @@ if __name__ == '__main__':
         data2 = []
         data = data1
         for line in f:
+            # There has to be a new line at the end of the file
+            # Otherwise next if condition will not execute
             if line.startswith('===='):
                 count += 1
                 continue
             if count == 2:
+                print "final merge"
                 data = merge(data1, data2)
 
                 data1 = []
