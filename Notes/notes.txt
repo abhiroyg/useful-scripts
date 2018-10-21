@@ -1,7 +1,7 @@
 # sudo apt-get update
 # sudo apt-get upgrade
 # sudo apt-get install vim-gnome emacs exuberant-ctags build-essential python-dev python3-dev
-# sudo apt-get install git mysql-server libmysqlclient-dev tree htop
+# sudo apt-get install git mysql-server libmysqlclient-dev tree htop openssh-server
 
 ## 170111 17:38:09 [Warning] Using unique option prefix key_buffer instead of key_buffer_size is deprecated and will be removed in a future release. Please use the full name instead.
 ## 170111 17:38:09 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
@@ -212,6 +212,8 @@
 # http://stackoverflow.com/questions/10623727/python-spacing-and-aligning-strings
 # http://stackoverflow.com/questions/13805939/testing-equality-of-three-values
 # http://stackoverflow.com/questions/31099561/test-if-all-elements-of-a-python-list-are-false
+# https://stackoverflow.com/questions/212358/binary-search-bisection-in-python
+# https://stackoverflow.com/questions/20297249/when-are-bisect-left-and-bisect-right-not-equal
 # Coverage
 #  https://coverage.readthedocs.io/en/latest/source.html#source
 #  https://coverage.readthedocs.io/en/latest/config.html#run
@@ -416,6 +418,14 @@ if value is not None:
 # https://www.howtogeek.com/howto/linux/keep-your-linux-ssh-session-from-disconnecting/
 # http://stackoverflow.com/questions/16956810/how-to-find-all-files-containing-specific-text-on-linux
 #   grep -rnw . -e "ERROR"
+# https://askubuntu.com/questions/29559/how-can-i-keep-recent-files-from-appearing-in-unity
+# https://superuser.com/questions/202676/sudo-vs-gksudo-difference
+# https://ask.fedoraproject.org/en/question/9954/how-to-keep-history-commands-in-sync-across-multiple-sessions/
+# https://askubuntu.com/questions/183515/how-do-i-find-the-kernel-version-ubuntu-release-and-disk-partition-information
+# http://stackoverflow.com/questions/1521462/looping-through-the-content-of-a-file-in-bash
+# https://github.com/lwfinger/rtlwifi_new/issues/225
+#   iperf3
+# https://askubuntu.com/questions/230698/how-to-restart-the-networking-service
 
 # Android
 # http://askubuntu.com/questions/564910/kvm-is-not-installed-on-this-machine-dev-kvm-is-missing
@@ -451,9 +461,6 @@ if value is not None:
 
 # Docker
 # https://docs.docker.com/engine/installation/linux/ubuntu/
-
-# Bash
-# http://stackoverflow.com/questions/1521462/looping-through-the-content-of-a-file-in-bash
 
 # Apache2
 # http://askubuntu.com/questions/446266/point-apache2-to-my-own-index-html-folder
@@ -574,3 +581,6 @@ if value is not None:
 # https://github.com/exebetche/vlsub
 #   not for vlc 2.1
 #   but ubuntu provides vlc-plugin-vlsub package
+
+# Ubuntu
+https://askubuntu.com/questions/20725/gpg-error-the-following-signatures-couldnt-be-verified-because-the-public-key
